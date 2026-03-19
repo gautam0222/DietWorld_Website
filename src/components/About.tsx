@@ -17,10 +17,6 @@ export default function About() {
         <div className="about-grid">
           <FadeIn direction="left" className="about-img-wrap">
             <img src={nupurImg} alt="Nupur — Certified Dietician" className="about-img" />
-            <div className="about-img-badge">
-              <Award size={20} />
-              <span>Certified Clinical Dietician</span>
-            </div>
           </FadeIn>
           <div className="about-text">
             <FadeIn delay={0.1}>

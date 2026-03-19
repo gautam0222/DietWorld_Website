@@ -1,5 +1,5 @@
 .pricing { background: var(--white); }
-.pricing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; max-width: 840px; margin: 0 auto; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1100px; margin: 0 auto; }
 .price-card {
   border-radius: var(--radius); padding: 48px 40px; position: relative; overflow: hidden;
   box-shadow: var(--shadow); border: 2px solid var(--cream); transition: var(--transition); text-align: center;
@@ -30,4 +30,5 @@
 .price-card:not(.dark) .features svg { color: var(--green); }
 .price-card .btn { width: 100%; justify-content: center; }
 
+@media (max-width: 968px) { .pricing-grid { grid-template-columns: repeat(2, 1fr); max-width: 700px; } }
 @media (max-width: 640px) { .pricing-grid { grid-template-columns: 1fr; } }

@@ -16,6 +16,17 @@ const plans = [
     dark: true,
   },
   {
+    icon: '🛵',
+    name: '3 Meals Delivery Plan',
+    price: '₹18,000',
+    duration: '/ month',
+    sub: 'Everything in a Healthy Manner',
+    badge: 'Premium',
+    badgeColor: '#F59E0B',
+    features: ['Breakfast, Lunch & Dinner', 'Delivered to Your Doorstep', 'Ultimate Convenience & Health', 'Personalized Nutrition'],
+    dark: true,
+  },
+  {
     icon: '🍽️',
     name: 'Dinner Plan',
     price: '₹2,500',

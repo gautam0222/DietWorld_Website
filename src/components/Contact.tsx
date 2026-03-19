@@ -4,11 +4,11 @@ import { FadeIn, SectionTitle } from './ui'
 import { Phone, Mail, MapPin, Clock, Instagram } from 'lucide-react'
 import './Contact.css'
 
-interface FormState { name: string; phone: string; email: string; plan: string; date: string; message: string }
-interface Errors { name?: string; phone?: string; email?: string; plan?: string }
+interface FormState { name: string; phone: string; plan: string; date: string; message: string }
+interface Errors { name?: string; phone?: string; plan?: string }
 
 export default function Contact() {
-  const [form, setForm] = useState<FormState>({ name: '', phone: '', email: '', plan: '', date: '', message: '' })
+  const [form, setForm] = useState<FormState>({ name: '', phone: '', plan: '', date: '', message: '' })
   const [errors, setErrors] = useState<Errors>({})
   const [submitted, setSubmitted] = useState(false)
 
@@ -16,8 +16,6 @@ export default function Contact() {
     const e: Errors = {}
     if (!form.name.trim()) e.name = 'Please enter your name'
     if (!/^[0-9]{10,}$/.test(form.phone.replace(/\s/g, ''))) e.phone = 'Enter a valid phone number'
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Enter a valid email address'
-    if (!form.plan) e.plan = 'Please select a plan'
     setErrors(e)
     return Object.keys(e).length === 0
   }
@@ -29,7 +27,17 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if (validate()) setSubmitted(true)
+    if (validate()) {
+      // Build the WhatsApp message payload
+      const text = `Hi Nupur! I have an inquiry from your website.🥗\n\n*Name:* ${form.name}\n*Phone:* ${form.phone}\n*Plan:* ${form.plan || 'Just Enquiring / Not Sure'}\n*Start Date:* ${form.date || 'Not specified'}\n*Message:* ${form.message || 'None'}`
+      const url = `https://wa.me/919049333389?text=${encodeURIComponent(text)}`
+      
+      // Open WhatsApp in a new tab
+      window.open(url, '_blank')
+      
+      // Show local success state
+      setSubmitted(true)
+    }
   }
 
   return (
@@ -52,19 +60,15 @@ export default function Contact() {
                       <input id="phone" type="tel" placeholder="10-digit phone number" value={form.phone} onChange={handleChange('phone')} />
                       {errors.phone && <span className="err-msg">{errors.phone}</span>}
                     </div>
-                    <div className={`fg${errors.email ? ' err' : ''}`}>
-                      <label htmlFor="email">Email Address *</label>
-                      <input id="email" type="email" placeholder="you@example.com" value={form.email} onChange={handleChange('email')} />
-                      {errors.email && <span className="err-msg">{errors.email}</span>}
-                    </div>
-                    <div className={`fg${errors.plan ? ' err' : ''}`}>
-                      <label htmlFor="plan">Select Plan *</label>
+
+                    <div className="fg">
+                      <label htmlFor="plan">Select Plan (Optional)</label>
                       <select id="plan" value={form.plan} onChange={handleChange('plan')}>
-                        <option value="">Choose a plan...</option>
-                        <option value="complete">Complete Meal Plan — ₹4,500 / 6 days</option>
-                        <option value="dinner">Dinner Plan — ₹2,500 / 6 days</option>
+                        <option value="">Just Enquiring / Not Sure Yet</option>
+                        <option value="Complete Meal Plan">Complete Meal Plan — ₹4,500 / 6 days</option>
+                        <option value="3 Meals Delivery Plan">3 Meals Delivery Plan — ₹18,000 / month</option>
+                        <option value="Dinner Plan">Dinner Plan — ₹2,500 / 6 days</option>
                       </select>
-                      {errors.plan && <span className="err-msg">{errors.plan}</span>}
                     </div>
                     <div className="fg">
                       <label htmlFor="date">Preferred Start Date</label>
@@ -74,7 +78,7 @@ export default function Contact() {
                       <label htmlFor="msg">Message (optional)</label>
                       <textarea id="msg" placeholder="Any dietary restrictions, goals, or questions..." value={form.message} onChange={handleChange('message')} />
                     </div>
-                    <button type="submit" className="btn btn-primary submit-btn">Submit Booking Request →</button>
+                    <button type="submit" className="btn btn-primary submit-btn">Send WhatsApp Request →</button>
                   </motion.form>
                 ) : (
                   <motion.div key="success" className="success-box" initial={{ opacity: 0, scale: .95 }} animate={{ opacity: 1, scale: 1 }}>
@@ -92,7 +96,7 @@ export default function Contact() {
               <h3>Get in Touch</h3>
               <p>Have questions? Reach out directly via WhatsApp for the fastest response from Nupur.</p>
               <div className="info-list">
-                <div className="info-item"><div className="info-icon"><Phone size={18} /></div><span>+91 90493 33389</span></div>
+                <div className="info-item"><div className="info-icon"><Phone size={18} /></div><a href="tel:+919049333389" style={{ textDecoration: 'none', color: 'inherit' }}>+91 90493 33389</a></div>
                 <div className="info-item"><div className="info-icon"><Instagram size={18} /></div><a href="https://www.instagram.com/dietworld_nupurs" target="_blank" rel="noopener noreferrer">@dietworld_nupurs</a></div>
                 <div className="info-item"><div className="info-icon"><MapPin size={18} /></div><span>Nagpur, India</span></div>
                 <div className="info-item"><div className="info-icon"><Clock size={18} /></div><span>Mon – Sat: 9 AM – 7 PM</span></div>

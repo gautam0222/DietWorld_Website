@@ -1,37 +1,36 @@
 import { motion } from 'framer-motion'
+import beforeImg from '../assets/before-photo.png'
+import afterImg from '../assets/after-photo.png'
 import { FadeIn, SectionTitle } from './ui'
 import './Transformations.css'
 
-const items = [
-  { label: 'Lost 12kg in 3 months', text: 'Complete Meal Plan', color: '#2D6A4F' },
-  { label: 'Lost 8kg in 2 months', text: 'Dinner Plan', color: '#40916C' },
-  { label: 'Healthy weight gain', text: 'Complete Meal Plan', color: '#1B4332' },
-  { label: 'Reversed pre-diabetes', text: 'Custom Diet Plan', color: '#C9A84C' },
-]
+
 
 export default function Transformations() {
   return (
     <section className="transformations section" id="transformations">
       <div className="container">
         <SectionTitle title="Transformation Stories" subtitle="Real results from real clients across Nagpur and India" />
-        <div className="transform-grid">
-          {items.map((item, i) => (
-            <FadeIn key={item.label} delay={i * 0.1}>
-              <motion.div className="transform-card" whileHover={{ scale: 1.025 }} transition={{ duration: 0.22 }}>
-                {/* REPLACE WITH: before-after-{i+1}.jpg */}
-                <img
-                  src={`https://placehold.co/600x360/${item.color.replace('#', '')}/FFFFFF?text=${encodeURIComponent(item.label)}`}
-                  alt={item.label}
-                  loading="lazy"
-                />
-                <div className="transform-overlay">
-                  <span className="tl">{item.label}</span>
-                  <span className="ts">{item.text}</span>
-                </div>
-              </motion.div>
-            </FadeIn>
-          ))}
-        </div>
+
+        <FadeIn delay={0.1}>
+          <div className="nupur-story">
+            <div className="nupur-story-text">
+              <h3>Nupur's Personal Journey</h3>
+              <p>My journey into nutrition started from my own struggles with weight and health. I realized that fad diets don't work, and true transformation comes from understanding your body and eating what you love in a balanced way.</p>
+              <p>Through simple, home-cooked food and deep nutritional science, I transformed my own life. Now, I dedicate my career to helping you experience the same freedom and health.</p>
+            </div>
+            <div className="nupur-story-photos">
+              <div className="photo-placeholder" style={{ padding: 0, overflow: 'hidden', border: 'none' }}>
+                <img src={beforeImg} alt="Nupur Before" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+              <div className="photo-placeholder" style={{ padding: 0, overflow: 'hidden', border: 'none' }}>
+                <img src={afterImg} alt="Nupur After" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              </div>
+            </div>
+          </div>
+        </FadeIn>
+
+
       </div>
     </section>
   )

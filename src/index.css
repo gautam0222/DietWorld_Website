@@ -22,6 +22,7 @@
 }
 
 html { scroll-behavior: smooth; }
+::selection { background: var(--gold-light); color: var(--charcoal); }
 
 body {
   font-family: 'Inter', sans-serif;
