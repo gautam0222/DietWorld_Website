@@ -1,0 +1,17 @@
+.footer { background: var(--green-dark); color: rgba(255,255,255,.75); padding: 64px 0 0; }
+.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.footer-logo { display: flex; align-items: center; gap: 8px; font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 14px; }
+.footer-logo em { font-style: normal; color: var(--gold); }
+.footer-logo svg { color: var(--gold); }
+.footer-brand p { font-size: .9rem; line-height: 1.7; margin-bottom: 20px; max-width: 260px; }
+.footer-ig { display: inline-flex; align-items: center; gap: 8px; color: var(--gold); font-weight: 500; font-size: .9rem; transition: var(--transition); }
+.footer-ig:hover { color: var(--white); }
+.footer-links, .footer-contact { display: flex; flex-direction: column; gap: 10px; }
+.footer-links strong, .footer-contact strong { color: var(--white); font-size: .85rem; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px; }
+.footer-links a { color: rgba(255,255,255,.65); font-size: .9rem; transition: var(--transition); }
+.footer-links a:hover { color: var(--gold); padding-left: 4px; }
+.footer-contact p { font-size: .9rem; color: rgba(255,255,255,.65); }
+.footer-bottom { text-align: center; padding: 20px 0; font-size: .82rem; opacity: .5; }
+
+@media (max-width: 768px) { .footer-top { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1/-1; } }
+@media (max-width: 480px) { .footer-top { grid-template-columns: 1fr; } }
