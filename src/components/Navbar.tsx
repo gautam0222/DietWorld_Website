@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Leaf } from 'lucide-react'
+import { Menu, X, Apple } from 'lucide-react'
 import './Navbar.css'
 
 const links = [
@@ -38,8 +38,8 @@ export default function Navbar() {
     >
       <div className="nav-inner container">
         <a href="#" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-          <Leaf size={22} strokeWidth={2.5} />
-          <span>Diet<em>World</em> Nupur</span>
+          <Apple size={26} strokeWidth={2} color="var(--gold)" style={{ fill: 'var(--gold)', fillOpacity: 0.2 }} />
+          <span style={{ fontFamily: "'Playfair Display', serif" }}>Dietworld_nupurs</span>
         </a>
 
         <ul className="nav-links">
@@ -50,9 +50,12 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="nav-actions">
+          <a href="#contact" className="nav-cta-btn" onClick={e => { e.preventDefault(); handleLink('#contact') }}>Book Now</a>
+          <button className="hamburger" onClick={() => setOpen(!open)} aria-label="Menu">
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>

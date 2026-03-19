@@ -5,10 +5,10 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import './Testimonials.css'
 
 const reviews = [
-  { name: 'Priya Sharma', role: 'IT Professional', city: 'Delhi', text: "Nupur's meal plans changed my life! I lost 10kg in just 2 months without ever feeling hungry. The food is delicious and so easy to prepare at home." },
-  { name: 'Anita Verma', role: 'Teacher', city: 'Mumbai', text: "As a working mom, I needed meals that were quick and healthy. Nupur understood my constraints perfectly. My energy levels are through the roof!" },
-  { name: 'Rahul Mehta', role: 'Business Owner', city: 'Pune', text: "I was skeptical about online diet plans, but Nupur's personalized approach won me over completely. The WhatsApp support makes all the difference." },
-  { name: 'Sneha Patel', role: 'Fitness Enthusiast', city: 'Bangalore', text: "Best investment in my health ever. Nupur's plans are practical, delicious, and actually work. Highly recommend the Complete Meal Plan!" },
+  { name: 'Priya Sharma', role: 'IT Professional', city: 'Nagpur', text: "Nupur's meal plans changed my life! I lost 10kg in just 2 months without ever feeling hungry. The food is delicious and so easy to prepare at home." },
+  { name: 'Anita Verma', role: 'Teacher', city: 'Nagpur', text: "As a working mom, I needed meals that were quick and healthy. Nupur understood my constraints perfectly. My energy levels are through the roof!" },
+  { name: 'Rahul Mehta', role: 'Business Owner', city: 'Nagpur', text: "I was skeptical about online diet plans, but Nupur's personalized approach won me over completely. The WhatsApp support makes all the difference." },
+  { name: 'Sneha Patel', role: 'Fitness Enthusiast', city: 'Nagpur', text: "Best investment in my health ever. Nupur's plans are practical, delicious, and actually work. Highly recommend the Complete Meal Plan!" },
 ]
 
 export default function Testimonials() {

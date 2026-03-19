@@ -1,0 +1,51 @@
+.trust-banner {
+  background: var(--cream);
+  padding: 18px 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(45,106,79,.08);
+  display: flex;
+  white-space: nowrap;
+  width: 100vw;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.02);
+}
+
+.trust-track {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  animation: scrollMarquee 35s linear infinite;
+  /* min-width to ensure we have enough track to loop perfectly */
+  min-width: 200%;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--green-dark);
+  letter-spacing: 0.5px;
+}
+
+.trust-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold);
+  background: rgba(201, 168, 76, 0.15);
+  padding: 8px;
+  border-radius: 50%;
+}
+
+@keyframes scrollMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  .trust-banner { padding: 14px 0; }
+  .trust-item { font-size: 1rem; gap: 10px; }
+  .trust-icon-wrap { padding: 6px; }
+}

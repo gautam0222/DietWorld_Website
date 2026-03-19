@@ -29,7 +29,7 @@ export default function Services() {
         <div className="services-grid">
           {services.map((s, i) => (
             <FadeIn key={s.title} delay={i * 0.12}>
-              <motion.div className="service-card" whileHover={{ y: -8 }} transition={{ duration: 0.25 }}>
+              <motion.div className="service-card" whileHover={{ y: -8, scale: 1.02 }} transition={{ duration: 0.25 }}>
                 <div className="service-icon">{s.icon}</div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>

@@ -66,7 +66,7 @@ export default function WhyUs() {
         <div className="usp-grid">
           {usps.map((u, i) => (
             <FadeIn key={u.title} delay={i * 0.1}>
-              <motion.div className="usp-tile" whileHover={{ y: -5 }} transition={{ duration: 0.2 }}>
+              <motion.div className="usp-tile" whileHover={{ y: -6, scale: 1.03 }} transition={{ duration: 0.2 }}>
                 <div className="usp-icon">{u.icon}</div>
                 <h4>{u.title}</h4>
                 <p>{u.desc}</p>
